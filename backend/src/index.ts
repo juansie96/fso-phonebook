@@ -3,6 +3,7 @@ import data from "./data/persons.json";
 import requestLogger from "./middlewares/requestLogger";
 import morgan from "morgan";
 import validateFields, { ValidationField } from "./utils/validateFields";
+import generateId from "@/utils/generateId";
 
 let persons = [...data];
 

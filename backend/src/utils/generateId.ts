@@ -1,3 +1,3 @@
-const generateId = () => Math.floor(Math.random() * 100000)
+const generateId = () => Math.floor(Math.random() * 100000);
 
-module.exports = generateId
+export default generateId;
