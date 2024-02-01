@@ -1,16 +1,35 @@
 import axios from "axios";
+const baseUrl = "/api/persons";
 
-const BASE_URL = "/api/persons";
-
-const getAll = async () => {
-  const response = await axios.get(BASE_URL);
-  return response.data;
+const getAll = () => {
+  const request = axios.get(baseUrl);
+  return request.then((response) => response.data);
 };
 
-const deletePerson = async (id: number) => {
-  const response = await axios.delete(BASE_URL + "/" + id);
-  return response.data;
+const getById = (id: string) => {
+  const request = axios.get(`${baseUrl}/${id}`);
+  return request.then((response) => response.data);
 };
 
-// getAll, getById, create, delete
-export default { getAll, deletePerson };
+const create = (newObject: unknown) => {
+  const request = axios.post(baseUrl, newObject);
+  return request.then((response) => response.data);
+};
+
+const update = (id: number, newObject: unknown) => {
+  const request = axios.put(`${baseUrl}/${id}`, newObject);
+  return request.then((response) => response.data);
+};
+
+const deleteById = (id: number) => {
+  const request = axios.delete(`${baseUrl}/${id}`);
+  return request.then((response) => response.data);
+};
+
+export default {
+  getAll,
+  getById,
+  create,
+  update,
+  deleteById,
+};

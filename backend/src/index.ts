@@ -1,3 +1,4 @@
+require("module-alias/register");
 import express, { Express, Request, Response } from "express";
 import data from "./data/persons.json";
 import requestLogger from "./middlewares/requestLogger";
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(requestLogger);
+app.use(express.static("dist"));
 
 morgan.token("body", (req: Request) => JSON.stringify(req.body));
 

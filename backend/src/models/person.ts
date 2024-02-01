@@ -1,10 +1,15 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const personSchema = new mongoose.Schema({
+export interface IPerson extends Document {
+  name: string;
+  number: string;
+}
+
+const personSchema = new Schema({
   name: String,
   number: String,
 });
 
-const Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model<IPerson>("Person", personSchema);
 
 export default Person;

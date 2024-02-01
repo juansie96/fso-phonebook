@@ -37,7 +37,7 @@ function App() {
 
   const handleDeletePerson = async (id: number) => {
     try {
-      await phonebookService.deletePerson(id);
+      await phonebookService.deleteById(id);
       setPersonsState((prevState) => ({
         ...prevState,
         data: prevState.data?.filter((p) => p.id !== id) || null,
